@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on lovecucu</title>
+    <link>https://lovecucu.github.io/tags/java/</link>
+    <description>Recent content in java on lovecucu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 25 Apr 2021 00:00:51 +0800</lastBuildDate><atom:link href="https://lovecucu.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux上快速搭建php开发环境</title>
+      <link>https://lovecucu.github.io/posts/blog1/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:51 +0800</pubDate>
+      
+      <guid>https://lovecucu.github.io/posts/blog1/</guid>
+      <description>Linux上快速搭建php开发环境（内置swoole源码安装教程） 目录
+ 使用宝塔快速搭建Linux上php开发环境  宝塔的安装 使用宝塔安装软件 配置站点   源码安装swoole composer安装  摘要：本文记录我在使用宝塔快速搭建swoole学习环境过程中点滴，用以整理linux中php开发环境的快速搭建，文末是我的思考：Linux工具安装方法剖析</description>
+    </item>
+    
+  </channel>
+</rss>

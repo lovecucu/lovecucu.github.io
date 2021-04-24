@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on lovecucu</title>
+    <link>https://lovecucu.github.io/posts/</link>
+    <description>Recent content in Posts on lovecucu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 25 Apr 2021 00:00:51 +0800</lastBuildDate><atom:link href="https://lovecucu.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux上快速搭建php开发环境</title>
+      <link>https://lovecucu.github.io/posts/blog1/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:51 +0800</pubDate>
+      
+      <guid>https://lovecucu.github.io/posts/blog1/</guid>
+      <description>Linux上快速搭建php开发环境（内置swoole源码安装教程） 目录
+ 使用宝塔快速搭建Linux上php开发环境  宝塔的安装 使用宝塔安装软件 配置站点   源码安装swoole composer安装  摘要：本文记录我在使用宝塔快速搭建swoole学习环境过程中点滴，用以整理linux中php开发环境的快速搭建，文末是我的思考：Linux工具安装方法剖析</description>
+    </item>
+    
+    <item>
+      <title>Linux上快速搭建php开发环境（内置swoole源码安装教程）</title>
+      <link>https://lovecucu.github.io/posts/blog/</link>
+      <pubDate>Sat, 24 Apr 2021 23:41:58 +0800</pubDate>
+      
+      <guid>https://lovecucu.github.io/posts/blog/</guid>
+      <description>Linux上快速搭建php开发环境（内置swoole源码安装教程） 目录
+ 使用宝塔快速搭建Linux上php开发环境  宝塔的安装 使用宝塔安装软件 配置站点   源码安装swoole composer安装  摘要：本文记录我在使用宝塔快速搭建swoole学习环境过程中点滴，用以整理linux中php开发环境的快速搭建，文末是我的思考：Linux工具安装方法剖析
+使用宝塔快速搭建Linux上php开发环境 宝塔的安装 Centos安装命令：
+ yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;amp;&amp;amp; sh install.sh
+ Ubuntu/Deepin安装命令：
+ wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; sudo bash install.sh
+ Debian安装命令：
+ wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; bash install.sh
+ Fedora安装命令：
+ wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;amp;&amp;amp; bash install.sh
+ Linux面板7.0.2升级命令：
+ curl http://download.bt.cn/install/update6.sh|bash
+ 如果上述节点无法安装成功，可使用备用节点。详情见 宝塔Linux面板安装教程
+使用宝塔安装软件 宝塔安装完成后，会给出登录面板地址，用户名及密码，如下所示</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Linux上快速搭建php开发环境（内置swoole源码安装教程） // lovecucu</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.82.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="lovecucu" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://lovecucu.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux上快速搭建php开发环境（内置swoole源码安装教程）"/>
+<meta name="twitter:description" content="Linux上快速搭建php开发环境（内置swoole源码安装教程） 目录
+ 使用宝塔快速搭建Linux上php开发环境  宝塔的安装 使用宝塔安装软件 配置站点   源码安装swoole composer安装  摘要：本文记录我在使用宝塔快速搭建swoole学习环境过程中点滴，用以整理linux中php开发环境的快速搭建，文末是我的思考：Linux工具安装方法剖析
+使用宝塔快速搭建Linux上php开发环境 宝塔的安装 Centos安装命令：
+ yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh
+ Ubuntu/Deepin安装命令：
+ wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh
+ Debian安装命令：
+ wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; bash install.sh
+ Fedora安装命令：
+ wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; bash install.sh
+ Linux面板7.0.2升级命令：
+ curl http://download.bt.cn/install/update6.sh|bash
+ 如果上述节点无法安装成功，可使用备用节点。详情见 宝塔Linux面板安装教程
+使用宝塔安装软件 宝塔安装完成后，会给出登录面板地址，用户名及密码，如下所示"/>
+
+    <meta property="og:title" content="Linux上快速搭建php开发环境（内置swoole源码安装教程）" />
+<meta property="og:description" content="Linux上快速搭建php开发环境（内置swoole源码安装教程） 目录
+ 使用宝塔快速搭建Linux上php开发环境  宝塔的安装 使用宝塔安装软件 配置站点   源码安装swoole composer安装  摘要：本文记录我在使用宝塔快速搭建swoole学习环境过程中点滴，用以整理linux中php开发环境的快速搭建，文末是我的思考：Linux工具安装方法剖析
+使用宝塔快速搭建Linux上php开发环境 宝塔的安装 Centos安装命令：
+ yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh
+ Ubuntu/Deepin安装命令：
+ wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh
+ Debian安装命令：
+ wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; bash install.sh
+ Fedora安装命令：
+ wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; bash install.sh
+ Linux面板7.0.2升级命令：
+ curl http://download.bt.cn/install/update6.sh|bash
+ 如果上述节点无法安装成功，可使用备用节点。详情见 宝塔Linux面板安装教程
+使用宝塔安装软件 宝塔安装完成后，会给出登录面板地址，用户名及密码，如下所示" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lovecucu.github.io/posts/blog/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-24T23:41:58&#43;08:00" />
+<meta property="article:modified_time" content="2021-04-24T23:41:58&#43;08:00" />
+
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://lovecucu.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="lovecucu" /></a>
+      <h1>lovecucu</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="/">主页</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">标签</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/categories/">分类</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/about/">关于</a>
+      </nav>
+      <p> </p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/lovecucu" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/gohugoio" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Linux上快速搭建php开发环境（内置swoole源码安装教程）</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Apr 24, 2021
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://lovecucu.github.io/tags/php/">php</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h2 id="linux上快速搭建php开发环境内置swoole源码安装教程">Linux上快速搭建php开发环境（内置swoole源码安装教程）</h2>
+<p>目录</p>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%AE%9D%E5%A1%94%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BALinux%E4%B8%8Aphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">使用宝塔快速搭建Linux上php开发环境</a>
+<ul>
+<li><a href="#%E5%AE%9D%E5%A1%94%E7%9A%84%E5%AE%89%E8%A3%85">宝塔的安装</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%AE%9D%E5%A1%94%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6">使用宝塔安装软件</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E7%AB%99%E7%82%B9">配置站点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85swoole">源码安装swoole</a></li>
+<li><a href="#composer%E5%AE%89%E8%A3%85">composer安装</a></li>
+</ul>
+<p>摘要：本文记录我在使用宝塔快速搭建swoole学习环境过程中点滴，用以整理linux中php开发环境的快速搭建，文末是我的思考：Linux工具安装方法剖析</p>
+<h3 id="使用宝塔快速搭建linux上php开发环境">使用宝塔快速搭建Linux上php开发环境</h3>
+<h4 id="宝塔的安装">宝塔的安装</h4>
+<p>Centos安装命令：</p>
+<blockquote>
+<p>yum install -y wget &amp;&amp; wget -O install.sh <a href="http://download.bt.cn/install/install_6.0.sh">http://download.bt.cn/install/install_6.0.sh</a> &amp;&amp; sh install.sh</p>
+</blockquote>
+<p>Ubuntu/Deepin安装命令：</p>
+<blockquote>
+<p>wget -O install.sh <a href="http://download.bt.cn/install/install-ubuntu_6.0.sh">http://download.bt.cn/install/install-ubuntu_6.0.sh</a> &amp;&amp; sudo bash install.sh</p>
+</blockquote>
+<p>Debian安装命令：</p>
+<blockquote>
+<p>wget -O install.sh <a href="http://download.bt.cn/install/install-ubuntu_6.0.sh">http://download.bt.cn/install/install-ubuntu_6.0.sh</a> &amp;&amp; bash install.sh</p>
+</blockquote>
+<p>Fedora安装命令：</p>
+<blockquote>
+<p>wget -O install.sh <a href="http://download.bt.cn/install/install_6.0.sh">http://download.bt.cn/install/install_6.0.sh</a> &amp;&amp; bash install.sh</p>
+</blockquote>
+<p>Linux面板7.0.2升级命令：</p>
+<blockquote>
+<p>curl <a href="http://download.bt.cn/install/update6.sh">http://download.bt.cn/install/update6.sh</a>|bash</p>
+</blockquote>
+<p>如果上述节点无法安装成功，可使用备用节点。详情见 <a href="https://www.bt.cn/bbs/thread-19376-1-1.html">宝塔Linux面板安装教程</a></p>
+<h4 id="使用宝塔安装软件">使用宝塔安装软件</h4>
+<p>宝塔安装完成后，会给出登录面板地址，用户名及密码，如下所示</p>
+<blockquote>
+<p>Bt-Panel: <a href="http://xxx.xxx.xxx.xxx:8888/34c01187">http://xxx.xxx.xxx.xxx:8888/34c01187</a>
+username: lovecucu
+password: lovecucu</p>
+</blockquote>
+<p>安装步骤如下：</p>
+<ul>
+<li>进入面板的软件商店栏，搜索要安装的软件，并点击安装，过程如下所示：</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191217073335909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE3NDgxNzc5,size_16,color_FFFFFF,t_70" alt="进入软件商店"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191217073841332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE3NDgxNzc5,size_16,color_FFFFFF,t_70" alt="搜索PHP守护"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191217074005561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE3NDgxNzc5,size_16,color_FFFFFF,t_70" alt="PHP守护安装成功"></p>
+<p><strong>注：php、mysql、redis、nginx安装步骤同上</strong></p>
+<h4 id="配置站点">配置站点</h4>
+<p>具体步骤如下：</p>
+<ul>
+<li>进入网站，添加站点</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/2019121707441690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE3NDgxNzc5,size_16,color_FFFFFF,t_70" alt="添加站点"></p>
+<ul>
+<li>对站点进行配置</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191217074624643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE3NDgxNzc5,size_16,color_FFFFFF,t_70" alt="网站配置"></p>
+<h3 id="源码安装swoole">源码安装swoole</h3>
+<ol>
+<li>下载swoole源码包</li>
+</ol>
+<blockquote>
+<p>wget <a href="https://github.com/swoole/swoole-src/archive/v4.4.12.tar.gz">https://github.com/swoole/swoole-src/archive/v4.4.12.tar.gz</a></p>
+</blockquote>
+<ol start="2">
+<li>解压源码包</li>
+</ol>
+<blockquote>
+<p>tar -xzvf v4.4.12.tar.gz</p>
+</blockquote>
+<ol start="3">
+<li>查看对应php路径</li>
+</ol>
+<blockquote>
+<p>which php
+/www/wwwroot/server/php/bin/php</p>
+</blockquote>
+<ol start="4">
+<li>执行编译</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd swoole-v4.4.12
+
+phpize
+
+./configure --with-config<span style="color:#f92672">=</span>/www/wwwroot/server/php/bin/php-config
+
+make
+
+sudo make install
+</code></pre></div><p>注：详情见 <a href="https://wiki.swoole.com/wiki/page/6.html">swoole编译安装</a></p>
+<ol start="5">
+<li>php.ini加入swoole扩展</li>
+</ol>
+<blockquote>
+<p>extension=swoole.so</p>
+</blockquote>
+<ol start="6">
+<li>验证swoole扩展是否安装成功</li>
+</ol>
+<blockquote>
+<p>php -m | grep swoole</p>
+</blockquote>
+<h3 id="composer安装">composer安装</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">php -r <span style="color:#e6db74">&#34;copy(&#39;https://getcomposer.org/installer&#39;, &#39;composer-setup.php&#39;);&#34;</span>
+php -r <span style="color:#e6db74">&#34;if (hash_file(&#39;sha384&#39;, &#39;composer-setup.php&#39;) === &#39;baf1608c33254d00611ac1705c1d9958c817a1a33bce370c0595974b342601bd80b92a3f46067da89e3b06bff421f182&#39;) { echo &#39;Installer verified&#39;; } else { echo &#39;Installer corrupt&#39;; unlink(&#39;composer-setup.php&#39;); } echo PHP_EOL;&#34;</span>
+php composer-setup.php
+php -r <span style="color:#e6db74">&#34;unlink(&#39;composer-setup.php&#39;);&#34;</span>
+</code></pre></div><p>注：详情见 <a href="https://getcomposer.org/download/">Download Composer</a></p>
+<p>思考：Linux工具安装剖析</p>
+<p>安装工具常用步骤：</p>
+<ul>
+<li>到该软件的官网找相关安装文档（一般能摸清安装步骤）</li>
+<li>安装过程中出现错误时，直接用google搜索相关错误信息（一般都能得到解决）</li>
+</ul>
+<p>程序员要勤于思考，总结。毕竟这是一条漫长而趣味十足的路</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

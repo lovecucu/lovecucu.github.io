@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lovecucu</title>
+    <link>https://lovecucu.github.io/</link>
+    <description>Recent content on lovecucu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 25 Apr 2021 00:00:51 +0800</lastBuildDate><atom:link href="https://lovecucu.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux上快速搭建php开发环境</title>
+      <link>https://lovecucu.github.io/posts/blog1/</link>
+      <pubDate>Sun, 25 Apr 2021 00:00:51 +0800</pubDate>
+      
+      <guid>https://lovecucu.github.io/posts/blog1/</guid>
+      <description>Linux上快速搭建php开发环境（内置swoole源码安装教程） 目录
+ 使用宝塔快速搭建Linux上php开发环境  宝塔的安装 使用宝塔安装软件 配置站点   源码安装swoole composer安装  摘要：本文记录我在使用宝塔快速搭建swoole学习环境过程中点滴，用以整理linux中php开发环境的快速搭建，文末是我的思考：Linux工具安装方法剖析</description>
+    </item>
+    
+    <item>
+      <title>Linux上快速搭建php开发环境（内置swoole源码安装教程）</title>
+      <link>https://lovecucu.github.io/posts/blog/</link>
+      <pubDate>Sat, 24 Apr 2021 23:41:58 +0800</pubDate>
+      
+      <guid>https://lovecucu.github.io/posts/blog/</guid>
+      <description>Linux上快速搭建php开发环境（内置swoole源码安装教程） 目录
+ 使用宝塔快速搭建Linux上php开发环境  宝塔的安装 使用宝塔安装软件 配置站点   源码安装swoole composer安装  摘要：本文记录我在使用宝塔快速搭建swoole学习环境过程中点滴，用以整理linux中php开发环境的快速搭建，文末是我的思考：Linux工具安装方法剖析
+使用宝塔快速搭建Linux上php开发环境 宝塔的安装 Centos安装命令：
+ yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;amp;&amp;amp; sh install.sh
+ Ubuntu/Deepin安装命令：
+ wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; sudo bash install.sh
+ Debian安装命令：
+ wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;amp;&amp;amp; bash install.sh
+ Fedora安装命令：
+ wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;amp;&amp;amp; bash install.sh
+ Linux面板7.0.2升级命令：
+ curl http://download.bt.cn/install/update6.sh|bash
+ 如果上述节点无法安装成功，可使用备用节点。详情见 宝塔Linux面板安装教程
+使用宝塔安装软件 宝塔安装完成后，会给出登录面板地址，用户名及密码，如下所示</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://lovecucu.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://lovecucu.github.io/about/</guid>
+      <description>技能 语言： PHP,JavaScript
+系统：Centos,Windows7
+编辑器：PHPStrom,Sublime,Vim
+工具：Bash,Git Bash,git,Composer
+框架：
+ PHP：CodeIgniter3,ThinkPHP,Yii2 JavaScript：Jquery CSS：BootStrap  爱好 喜欢研究时间管理、学习力、英语学习等内容，但至今仍无所得。
+喜欢跑步、台球、游戏，目前仍在努力进修。
+人生格言 如何过一天，就是如何过一生。
+联系我 QQ：245035516
+邮箱：ydlovecucu1314@gmail.com</description>
+    </item>
+    
+  </channel>
+</rss>
