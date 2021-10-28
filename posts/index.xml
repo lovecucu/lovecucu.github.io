@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on lovecucu</title>
-    <link>http://www.lovecucu.cn/posts/</link>
+    <link>https://www.lovecucu.cn/posts/</link>
     <description>Recent content in Posts on lovecucu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 Oct 2021 17:40:58 +0800</lastBuildDate><atom:link href="http://www.lovecucu.cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Oct 2021 17:40:58 +0800</lastBuildDate><atom:link href="https://www.lovecucu.cn/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>浅谈位运算在php中用途</title>
-      <link>http://www.lovecucu.cn/posts/the-usage-of-bit-operation-in-php/</link>
+      <link>https://www.lovecucu.cn/posts/the-usage-of-bit-operation-in-php/</link>
       <pubDate>Thu, 28 Oct 2021 17:40:58 +0800</pubDate>
       
-      <guid>http://www.lovecucu.cn/posts/the-usage-of-bit-operation-in-php/</guid>
+      <guid>https://www.lovecucu.cn/posts/the-usage-of-bit-operation-in-php/</guid>
       <description>目录    1. 位运算在错误级别设置中的应用 2. 位运算在用户权限控制中的应用 3. 位运算的简单应用  内容    1. 位运算在错误级别设置中的应用    我们都知道在php中有个设置提示级别的函数error_reporting(),它的参数代表哪些错误将被显示出来，那么它是如何实现的呢？
 其实这里PHP 的 ini 设定 error_reporting 使用了按位的值，提供了关闭某个位的真实例子。 要显示除了提示级别之外的所有错误，php.ini 中是这样用的： E_ALL &amp;amp; ~E_NOTICE 这里具体的运作方式是先取得E_ALL的值: 00000000000000000111011111111111 再取得 E_NOTICE 的值： 00000000000000000000000000001000 然后通过 ~ 将 E_NOTICE 取反： 11111111111111111111111111110111 最后再用按位与 AND（&amp;amp;）得到两个值中都设定了（为 1）的位： 00000000000000000111011111110111 另外一个方法是用按位异或 XOR（^）来取得只在 其中一个值中设定了的位： E_ALL ^ E_NOTICE 得出的结果上面的方法相同，均为： 00000000000000000111011111110111 这里也可使用按位或 OR （|）来设置提示级别，例如只提示错误和警告： E_ERROR | E_WARNING 2. 位运算在用户权限控制中的应用    位运算在用户权限控制中的使用和1中类似，原理都是通过不同2进制位指代不同的用户权限（提示级别），这样当判断用户是否含有某个权限a时，只需要将用户权限和a权限进行按位与（&amp;amp;）操作，如果结果不为0，则说明用户有a权限，代码如下：
 /** * 功能：用户类 */ class User { protected $id; protected $name; protected $auth; public function __get($attr) { if(isset($this-&amp;gt;$attr)) { return $this-&amp;gt;$attr; } return null; } public function __set($attr, $value) { if(array_key_exists($attr, get_class_vars(&amp;#39;User&amp;#39;))) { $this-&amp;gt;$attr = $value; return TRUE; } return FALSE; } } /** * 功能：用户权限验证类 */ class UserAuth { const IS_READABLE = 4; const IS_WRITABLE = 2; const IS_EXECUTABLE = 1; private $user; public function __construct($user) { if($user instanceof User) { $this-&amp;gt;user = $user; } } public function authCheck($authid) { $pass = FALSE; switch ($authid) { case self::IS_READABLE: case self::IS_WRITABLE: case self::IS_EXECUTABLE: // 按位与(&amp;amp;)判断是否具有相应权限  if($this-&amp;gt;user-&amp;gt;auth &amp;amp; $authid) { $pass = TRUE; } break; default: # code.</description>
@@ -20,10 +20,10 @@
     
     <item>
       <title>Linux上快速搭建php开发环境（内置swoole源码安装教程）</title>
-      <link>http://www.lovecucu.cn/posts/install-php-developer-environment-using-baota/</link>
+      <link>https://www.lovecucu.cn/posts/install-php-developer-environment-using-baota/</link>
       <pubDate>Thu, 28 Oct 2021 15:03:54 +0800</pubDate>
       
-      <guid>http://www.lovecucu.cn/posts/install-php-developer-environment-using-baota/</guid>
+      <guid>https://www.lovecucu.cn/posts/install-php-developer-environment-using-baota/</guid>
       <description>目录     使用宝塔快速搭建Linux上php开发环境  宝塔的安装 使用宝塔安装软件 配置站点   源码安装swoole composer安装  摘要：本文记录我在使用宝塔快速搭建swoole学习环境过程中点滴，用以整理linux中php开发环境的快速搭建，文末是我的思考：Linux工具安装方法剖析
 使用宝塔快速搭建Linux上php开发环境    宝塔的安装    Centos安装命令：
  yum install -y wget &amp;amp;&amp;amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;amp;&amp;amp; sh install.sh
