@@ -2,27 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on lovecucu</title>
-    <link>https://lovecucu.github.io/tags/</link>
+    <link>http://www.lovecucu.cn/tags/</link>
     <description>Recent content in Tags on lovecucu</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 25 Apr 2021 00:00:51 +0800</lastBuildDate><atom:link href="https://lovecucu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>java</title>
-      <link>https://lovecucu.github.io/tags/java/</link>
-      <pubDate>Sun, 25 Apr 2021 00:00:51 +0800</pubDate>
-      
-      <guid>https://lovecucu.github.io/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>php</title>
-      <link>https://lovecucu.github.io/tags/php/</link>
-      <pubDate>Sat, 24 Apr 2021 23:41:58 +0800</pubDate>
-      
-      <guid>https://lovecucu.github.io/tags/php/</guid>
-      <description></description>
-    </item>
-    
+    <language>en</language><atom:link href="http://www.lovecucu.cn/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
