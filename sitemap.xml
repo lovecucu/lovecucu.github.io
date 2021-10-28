@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://www.lovecucu.cn/posts/install-php-developer-environment-using-baota/</loc>
-    <lastmod>2021-10-28T15:03:54+08:00</lastmod>
-  </url><url>
     <loc>http://www.lovecucu.cn/</loc>
-    <lastmod>2021-10-28T15:03:54+08:00</lastmod>
+    <lastmod>2021-10-28T17:40:58+08:00</lastmod>
   </url><url>
     <loc>http://www.lovecucu.cn/posts/</loc>
+    <lastmod>2021-10-28T17:40:58+08:00</lastmod>
+  </url><url>
+    <loc>http://www.lovecucu.cn/posts/the-usage-of-bit-operation-in-php/</loc>
+    <lastmod>2021-10-28T17:40:58+08:00</lastmod>
+  </url><url>
+    <loc>http://www.lovecucu.cn/posts/install-php-developer-environment-using-baota/</loc>
     <lastmod>2021-10-28T15:03:54+08:00</lastmod>
   </url><url>
     <loc>http://www.lovecucu.cn/about/</loc>
