@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="lovecucu">
+    <meta name="description" content="awesome">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux上快速搭建php开发环境（内置swoole源码安装教程）"/>
+<meta name="twitter:description" content="awesome"/>
+
+    <meta property="og:title" content="Linux上快速搭建php开发环境（内置swoole源码安装教程）" />
+<meta property="og:description" content="awesome" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.lovecucu.cn/posts/install-php-developer-environment-using-baota/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-28T15:03:54+08:00" />
+<meta property="article:modified_time" content="2021-10-28T15:03:54+08:00" />
+
+
+
+    <title>
+  Linux上快速搭建php开发环境（内置swoole源码安装教程） · lovecucu
+</title>
+
+    
+      <link rel="canonical" href="http://www.lovecucu.cn/posts/install-php-developer-environment-using-baota/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.708686f8ab8176e91d44fcbe488a0fe0333b94f405cf18a52383d67ba22f0ccb.css" integrity="sha256-cIaG&#43;KuBdukdRPy&#43;SIoP4DM7lPQFzxilI4PWe6IvDMs=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.aa883b9ce35a8ff4a2a5008619005175e842bb18a8a9f9cc2bbcf44dab2d91fa.css" integrity="sha256-qog7nONaj/SipQCGGQBRdehCuxioqfnMK7z0Tastkfo=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    
+
+    <meta name="generator" content="Hugo 0.88.1" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto"
+        onload=""
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      lovecucu
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/contact/">Contact me</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://www.lovecucu.cn/posts/install-php-developer-environment-using-baota/">
+              Linux上快速搭建php开发环境（内置swoole源码安装教程）
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2021-10-28T15:03:54&#43;08:00'>
+                October 28, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <h3 id="目录">
+  目录
+  <a class="heading-link" href="#%e7%9b%ae%e5%bd%95">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%AE%9D%E5%A1%94%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BALinux%E4%B8%8Aphp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">使用宝塔快速搭建Linux上php开发环境</a>
+<ul>
+<li><a href="#%E5%AE%9D%E5%A1%94%E7%9A%84%E5%AE%89%E8%A3%85">宝塔的安装</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%AE%9D%E5%A1%94%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6">使用宝塔安装软件</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E7%AB%99%E7%82%B9">配置站点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85swoole">源码安装swoole</a></li>
+<li><a href="#composer%E5%AE%89%E8%A3%85">composer安装</a></li>
+</ul>
+<p>摘要：本文记录我在使用宝塔快速搭建swoole学习环境过程中点滴，用以整理linux中php开发环境的快速搭建，文末是我的思考：Linux工具安装方法剖析</p>
+<h3 id="使用宝塔快速搭建linux上php开发环境">
+  使用宝塔快速搭建Linux上php开发环境
+  <a class="heading-link" href="#%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%a1%94%e5%bf%ab%e9%80%9f%e6%90%ad%e5%bb%balinux%e4%b8%8aphp%e5%bc%80%e5%8f%91%e7%8e%af%e5%a2%83">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<h4 id="宝塔的安装">
+  宝塔的安装
+  <a class="heading-link" href="#%e5%ae%9d%e5%a1%94%e7%9a%84%e5%ae%89%e8%a3%85">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h4>
+<p>Centos安装命令：</p>
+<blockquote>
+<p>yum install -y wget &amp;&amp; wget -O install.sh <a href="http://download.bt.cn/install/install_6.0.sh">http://download.bt.cn/install/install_6.0.sh</a> &amp;&amp; sh install.sh</p>
+</blockquote>
+<p>Ubuntu/Deepin安装命令：</p>
+<blockquote>
+<p>wget -O install.sh <a href="http://download.bt.cn/install/install-ubuntu_6.0.sh">http://download.bt.cn/install/install-ubuntu_6.0.sh</a> &amp;&amp; sudo bash install.sh</p>
+</blockquote>
+<p>Debian安装命令：</p>
+<blockquote>
+<p>wget -O install.sh <a href="http://download.bt.cn/install/install-ubuntu_6.0.sh">http://download.bt.cn/install/install-ubuntu_6.0.sh</a> &amp;&amp; bash install.sh</p>
+</blockquote>
+<p>Fedora安装命令：</p>
+<blockquote>
+<p>wget -O install.sh <a href="http://download.bt.cn/install/install_6.0.sh">http://download.bt.cn/install/install_6.0.sh</a> &amp;&amp; bash install.sh</p>
+</blockquote>
+<p>Linux面板7.0.2升级命令：</p>
+<blockquote>
+<p>curl <a href="http://download.bt.cn/install/update6.sh">http://download.bt.cn/install/update6.sh</a>|bash</p>
+</blockquote>
+<p>如果上述节点无法安装成功，可使用备用节点。详情见 <a href="https://www.bt.cn/bbs/thread-19376-1-1.html">宝塔Linux面板安装教程</a></p>
+<h4 id="使用宝塔安装软件">
+  使用宝塔安装软件
+  <a class="heading-link" href="#%e4%bd%bf%e7%94%a8%e5%ae%9d%e5%a1%94%e5%ae%89%e8%a3%85%e8%bd%af%e4%bb%b6">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h4>
+<p>宝塔安装完成后，会给出登录面板地址，用户名及密码，如下所示</p>
+<blockquote>
+<p>Bt-Panel: <a href="http://xxx.xxx.xxx.xxx:8888/34c01187">http://xxx.xxx.xxx.xxx:8888/34c01187</a>
+username: lovecucu
+password: lovecucu</p>
+</blockquote>
+<p>安装步骤如下：</p>
+<ul>
+<li>进入面板的软件商店栏，搜索要安装的软件，并点击安装，过程如下所示：</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191217073335909.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE3NDgxNzc5,size_16,color_FFFFFF,t_70" alt="进入软件商店"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191217073841332.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE3NDgxNzc5,size_16,color_FFFFFF,t_70" alt="搜索PHP守护"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191217074005561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE3NDgxNzc5,size_16,color_FFFFFF,t_70" alt="PHP守护安装成功"></p>
+<p><strong>注：php、mysql、redis、nginx安装步骤同上</strong></p>
+<h4 id="配置站点">
+  配置站点
+  <a class="heading-link" href="#%e9%85%8d%e7%bd%ae%e7%ab%99%e7%82%b9">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h4>
+<p>具体步骤如下：</p>
+<ul>
+<li>进入网站，添加站点</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/2019121707441690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE3NDgxNzc5,size_16,color_FFFFFF,t_70" alt="添加站点"></p>
+<ul>
+<li>对站点进行配置</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191217074624643.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE3NDgxNzc5,size_16,color_FFFFFF,t_70" alt="网站配置"></p>
+<h3 id="源码安装swoole">
+  源码安装swoole
+  <a class="heading-link" href="#%e6%ba%90%e7%a0%81%e5%ae%89%e8%a3%85swoole">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<ol>
+<li>下载swoole源码包</li>
+</ol>
+<blockquote>
+<p>wget <a href="https://github.com/swoole/swoole-src/archive/v4.4.12.tar.gz">https://github.com/swoole/swoole-src/archive/v4.4.12.tar.gz</a></p>
+</blockquote>
+<ol start="2">
+<li>解压源码包</li>
+</ol>
+<blockquote>
+<p>tar -xzvf v4.4.12.tar.gz</p>
+</blockquote>
+<ol start="3">
+<li>查看对应php路径</li>
+</ol>
+<blockquote>
+<p>which php
+/www/wwwroot/server/php/bin/php</p>
+</blockquote>
+<ol start="4">
+<li>执行编译</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd swoole-v4.4.12
+
+phpize
+
+./configure --with-config=/www/wwwroot/server/php/bin/php-config
+
+make
+
+sudo make install
+</code></pre></div><p>注：详情见 <a href="https://wiki.swoole.com/wiki/page/6.html">swoole编译安装</a></p>
+<ol start="5">
+<li>php.ini加入swoole扩展</li>
+</ol>
+<blockquote>
+<p>extension=swoole.so</p>
+</blockquote>
+<ol start="6">
+<li>验证swoole扩展是否安装成功</li>
+</ol>
+<blockquote>
+<p>php -m | grep swoole</p>
+</blockquote>
+<h3 id="composer安装">
+  composer安装
+  <a class="heading-link" href="#composer%e5%ae%89%e8%a3%85">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">php -r <span style="font-style:italic">&#34;copy(&#39;https://getcomposer.org/installer&#39;, &#39;composer-setup.php&#39;);&#34;</span>
+php -r <span style="font-style:italic">&#34;if (hash_file(&#39;sha384&#39;, &#39;composer-setup.php&#39;) === &#39;baf1608c33254d00611ac1705c1d9958c817a1a33bce370c0595974b342601bd80b92a3f46067da89e3b06bff421f182&#39;) { echo &#39;Installer verified&#39;; } else { echo &#39;Installer corrupt&#39;; unlink(&#39;composer-setup.php&#39;); } echo PHP_EOL;&#34;</span>
+php composer-setup.php
+php -r <span style="font-style:italic">&#34;unlink(&#39;composer-setup.php&#39;);&#34;</span>
+</code></pre></div><p>注：详情见 <a href="https://getcomposer.org/download/">Download Composer</a></p>
+<p>思考：Linux工具安装剖析</p>
+<p>安装工具常用步骤：</p>
+<ul>
+<li>到该软件的官网找相关安装文档（一般能摸清安装步骤）</li>
+<li>安装过程中出现错误时，直接用google搜索相关错误信息（一般都能得到解决）</li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>legends never die.</p>
+      
+      
+        ©
+        
+        2021
+         lovecucu 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+        
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>
