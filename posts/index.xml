@@ -6,7 +6,133 @@
     <description>Recent content in Posts on lovecucu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 28 Oct 2021 17:40:58 +0800</lastBuildDate><atom:link href="https://www.lovecucu.cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Oct 2021 11:41:05 +0800</lastBuildDate><atom:link href="https://www.lovecucu.cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Mysql优化篇】Schema与数据结构优化</title>
+      <link>https://www.lovecucu.cn/posts/optimize-mysql-in-three-way-one/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/optimize-mysql-in-three-way-one/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql优化篇】查询优化</title>
+      <link>https://www.lovecucu.cn/posts/optimize-mysql-in-three-way-three/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/optimize-mysql-in-three-way-three/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql优化篇】索引优化</title>
+      <link>https://www.lovecucu.cn/posts/optimize-mysql-in-three-way-two/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/optimize-mysql-in-three-way-two/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql基础篇】InnoDB VS Mysiam</title>
+      <link>https://www.lovecucu.cn/posts/innodb-vs-myisam/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/innodb-vs-myisam/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql基础篇】一文搞懂Mysql索引</title>
+      <link>https://www.lovecucu.cn/posts/index-in-mysql/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/index-in-mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql基础篇】一文搞懂Mysql锁机制</title>
+      <link>https://www.lovecucu.cn/posts/lock-in-mysql/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/lock-in-mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql基础篇】一条SQL更新语句是如何执行的？</title>
+      <link>https://www.lovecucu.cn/posts/how-is-an-sql-update-statement-executed/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/how-is-an-sql-update-statement-executed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql基础篇】一条SQL查询语句是如何执行的？</title>
+      <link>https://www.lovecucu.cn/posts/how-is-an-sql-query-executed/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/how-is-an-sql-query-executed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql基础篇】事务持久性是如何实现的？</title>
+      <link>https://www.lovecucu.cn/posts/how-is-transaction-durability-implemented/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/how-is-transaction-durability-implemented/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql基础篇】事务隔离是如何实现的？</title>
+      <link>https://www.lovecucu.cn/posts/how-is-transaction-isolation-implemented/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/how-is-transaction-isolation-implemented/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql进阶篇】一文搞懂Mysql复制原理</title>
+      <link>https://www.lovecucu.cn/posts/replcation-in-mysql/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/replcation-in-mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql进阶篇】备份与恢复</title>
+      <link>https://www.lovecucu.cn/posts/backup-and-restore-in-mysql/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/backup-and-restore-in-mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql进阶篇】高可扩展架构</title>
+      <link>https://www.lovecucu.cn/posts/scalability-in-mysql/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/scalability-in-mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>【Mysql进阶篇】高可用架构</title>
+      <link>https://www.lovecucu.cn/posts/how-to-ensure-high-availibility-in-mysql/</link>
+      <pubDate>Fri, 29 Oct 2021 11:41:05 +0800</pubDate>
+      
+      <guid>https://www.lovecucu.cn/posts/how-to-ensure-high-availibility-in-mysql/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>浅谈位运算在php中用途</title>
       <link>https://www.lovecucu.cn/posts/the-usage-of-bit-operation-in-php/</link>
